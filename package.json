@@ -1,10 +1,13 @@
 {
   "name": "typescript-project-initializer",
-  "version": "1.0.0",
+  "version": "2.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ts-init": "ts-node index.ts"
+    "compile": "tsc"
+  },
+  "bin": {
+    "ts-init": "./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,9 +19,8 @@
     "url": "https://github.com/predeinnikita/typescript-project-initializer/issues"
   },
   "homepage": "https://github.com/predeinnikita/typescript-project-initializer#readme",
-  "dependencies": {
+  "devDependencies": {
     "@types/node": "^18.14.1",
-    "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   }
 }
