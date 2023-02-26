@@ -1,8 +1,8 @@
 # Utility for quick initialization TypeScript project with Webpack
 ## What you need to have to use
-- linux / macos
-- npm
+- node, npm
 - git
+- github
 
 ## How to use
 1. Install package globally:

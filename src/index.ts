@@ -1,34 +1,30 @@
 #!/usr/bin/env node
-import {exec, ExecException} from "child_process";
+import { ExecException } from "child_process";
+import * as child_process from "child_process";
+import * as fse from 'fs-extra'
 
 const templateRepo = 'create-ts-app-template';
 const templateVersion = 1;
+main().then();
 
-const commands = [
-    `git clone https://github.com/predeinnikita/${templateRepo}.git`,
-    `cp ${templateRepo}/template-${templateVersion}/. /. -R`,
-    `rm ${templateRepo} -R`,
-];
-
-function showMessage(error: ExecException | null, stdout: string, stderr: string) {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`stdout: ${stdout}`);
+async function main(): Promise<void> {
+    await runCommands([
+        `git clone https://github.com/predeinnikita/${templateRepo}.git`,
+    ]);
+    fse.copySync(`${templateRepo}/template-${templateVersion}/.`, './')
+    fse.removeSync(`${templateRepo}`);
 }
 
-function runCommands(commands: string[], commandIndex: number = 0): void {
-    exec(commands[commandIndex], (error, stdout, stderr) => {
-        showMessage(error, stdout, stderr);
-        if (commandIndex !== commands.length - 1) {
-            runCommands(commands, commandIndex + 1)
-        }
-    });
+async function runCommands(commands: string[], commandIndex: number = 0): Promise<void> {
+    for (let command of commands) {
+        await runCommand(command);
+    }
 }
 
-runCommands(commands);
+function runCommand(command: string): Promise<void> {
+    return new Promise<void>(resolve => {
+        child_process.exec(command, (error: ExecException | null, stdout: string, stderr: string) => {
+            resolve();
+        });
+    })
+}

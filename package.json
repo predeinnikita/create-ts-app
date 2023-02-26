@@ -1,6 +1,6 @@
 {
   "name": "create-ts-app-tool",
-  "version": "0.0.8",
+  "version": "3.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,16 +20,18 @@
   "keywords": [
     "typescript",
     "webpack",
-    "linux",
-    "cli",
-    "macos"
+    "cli"
   ],
   "bugs": {
     "url": "https://github.com/predeinnikita/create-ts-app/issues"
   },
   "homepage": "https://github.com/predeinnikita/create-ts-app#readme",
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/node": "^18.14.1",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.0"
   }
 }
