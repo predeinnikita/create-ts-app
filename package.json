@@ -1,24 +1,26 @@
 {
-  "name": "typescript-project-initializer",
-  "version": "2.0.1",
+  "name": "create-ts-app-tool",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc"
+    "compile": "tsc",
+    "publish": "tsc && npm publish",
+    "login:publish": "tsc && npm login && npm publish"
   },
   "bin": {
-    "ts-init": "./dist/index.js"
+    "create-ts-app": "./dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/predeinnikita/typescript-project-initializer.git"
+    "url": "git+https://github.com/predeinnikita/create-ts-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/predeinnikita/typescript-project-initializer/issues"
+    "url": "https://github.com/predeinnikita/create-ts-app/issues"
   },
-  "homepage": "https://github.com/predeinnikita/typescript-project-initializer#readme",
+  "homepage": "https://github.com/predeinnikita/create-ts-app#readme",
   "devDependencies": {
     "@types/node": "^18.14.1",
     "typescript": "^4.9.5"
