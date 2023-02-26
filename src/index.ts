@@ -5,8 +5,8 @@ const templateRepo = 'create-ts-app-template';
 const templateVersion = 1;
 
 const commands = [
-    `git clone git@github.com:predeinnikita/${templateRepo}.git`,
-    `cp ${templateRepo}/template-${templateVersion}/. . -R`,
+    `git clone https://github.com/predeinnikita/${templateRepo}.git`,
+    `cp ${templateRepo}/template-${templateVersion}/. /. -R`,
     `rm ${templateRepo} -R`,
 ];
 
