@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {exec, ExecException} from "child_process";
 
-const templateRepo = 'ts-project-initializer-template';
+const templateRepo = 'create-ts-app-template';
 const templateVersion = 1;
 
 const commands = [
