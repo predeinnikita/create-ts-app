@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: git config --global user.email "predein697@gmail.com"
       - run: git config --global user.name "predeinnikita"
+      - run: git pull
       - run: npm version patch
 
       - name: Push changes
