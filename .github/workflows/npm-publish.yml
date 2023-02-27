@@ -36,6 +36,6 @@ jobs:
           branch: test
 
       - run: git pull
-      - run: npm publish --access public
+      - run: npm run deploy
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
