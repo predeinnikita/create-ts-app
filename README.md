@@ -11,6 +11,10 @@ npm i -g create-ts-app-tool
 ```
 2. Open your project's directory and run script:
 ```
+npx create-ts-app
+```
+or
+```
 create-ts-app
 ```
 Now there are files in your project's directory: 
