@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
-    "publish": "tsc && npm publish",
+    "deploy": "tsc && npm publish --access public",
     "login:publish": "tsc && npm login && npm publish"
   },
   "bin": {
