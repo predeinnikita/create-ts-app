@@ -1,11 +1,11 @@
 {
   "name": "create-ts-app-tool",
-  "version": "3.0.1",
+  "version": "3.0.9",
   "description": "",
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
-    "publish": "tsc && npm publish",
+    "deploy": "tsc && npm publish --access public",
     "login:publish": "tsc && npm login && npm publish"
   },
   "bin": {

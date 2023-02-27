@@ -2,7 +2,7 @@ name: Node.js Package
 
 on:
   push:
-    branches: [main]
+    branches: [test]
 
 jobs:
   build:
@@ -20,11 +20,22 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - uses: maks-stupak/gh-action-bump-version@v7.1.5
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm publish
+      - run: git config --global user.email "predein697@gmail.com"
+      - run: git config --global user.name "predeinnikita"
+      - run: git pull
+      - run: npm version patch
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: test
+
+      - run: git pull
+      - run: npm run deploy
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
