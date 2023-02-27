@@ -27,7 +27,15 @@ jobs:
       - run: git config --global user.email "predein697@gmail.com"
       - run: git config --global user.name "predeinnikita"
       - run: npm version patch
-      - run: git push
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: test
+      - uses: fastify/github-action-merge-dependabot@v2.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
