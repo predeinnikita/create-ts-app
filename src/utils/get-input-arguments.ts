@@ -6,7 +6,7 @@ export interface IInputArguments {
 export function getInputArguments(): IInputArguments {
     const input = process.argv;
     if (input.length < 2 || input.length > 3) {
-        console.error('Expected one argument!');
+        console.error('ERROR! Expected one argument!');
         process.exit(1);
     }
 
