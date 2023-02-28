@@ -1,6 +1,6 @@
 export interface IInputArguments {
     templateRepo: string;
-    templateVersion: string;
+    templateId: string;
 }
 
 export function getInputArguments(): IInputArguments {
@@ -11,10 +11,10 @@ export function getInputArguments(): IInputArguments {
     }
 
     const templateRepo = 'create-ts-app-template';
-    const templateVersion = input.length === 3? input[2]: '1';
+    const templateId = input.length === 3? input[2]: '1';
 
     return {
         templateRepo,
-        templateVersion
+        templateId
     }
 }
