@@ -2,7 +2,7 @@ name: Node.js Package
 
 on:
   push:
-    branches: [main]
+    branches: [test]
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: test
 
       - run: git pull
       - run: npm run deploy
