@@ -1,30 +1,24 @@
 #!/usr/bin/env node
-import { ExecException } from "child_process";
-import * as child_process from "child_process";
-import * as fse from 'fs-extra'
+import * as fse from 'fs-extra';
+import { runCommands } from "./utils/run-command";
+import { getInputArguments } from "./utils/get-input-arguments";
 
-const templateRepo = 'create-ts-app-template';
-const templateVersion = 1;
 main().then();
 
 async function main(): Promise<void> {
+    const { templateRepo, templateId } = getInputArguments();
+
     await runCommands([
         `git clone https://github.com/predeinnikita/${templateRepo}.git`,
     ]);
-    fse.copySync(`${templateRepo}/template-${templateVersion}/.`, './')
-    fse.removeSync(`${templateRepo}`);
-}
 
-async function runCommands(commands: string[], commandIndex: number = 0): Promise<void> {
-    for (let command of commands) {
-        await runCommand(command);
+    const templatePath = `${templateRepo}/template-${templateId}/.`;
+    const templateExists = await fse.exists(templatePath);
+    if (templateExists) {
+        fse.copySync(templatePath, './')
+    } else {
+        console.error('ERROR! Incorrect template ID!');
     }
-}
 
-function runCommand(command: string): Promise<void> {
-    return new Promise<void>(resolve => {
-        child_process.exec(command, (error: ExecException | null, stdout: string, stderr: string) => {
-            resolve();
-        });
-    })
+    fse.removeSync(`${templateRepo}`);
 }

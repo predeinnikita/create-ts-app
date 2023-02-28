@@ -9,13 +9,13 @@
 ```
 npm i -g create-ts-app-tool
 ```
-2. Open your project's directory and run script:
+2. Open your project's directory and run script with template-version, for example:
 ```
-npx create-ts-app
+npx create-ts-app 1
 ```
 or
 ```
-create-ts-app
+create-ts-app 1
 ```
 Now there are files in your project's directory: 
 - package.json,
@@ -25,3 +25,6 @@ Now there are files in your project's directory:
 - src/index.ts,
 - src/index.html,
 - src/index.css
+
+Templates: https://github.com/predeinnikita/create-ts-app-template \
+Source code: https://github.com/predeinnikita/create-ts-app
